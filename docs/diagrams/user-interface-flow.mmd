@@ -1,0 +1,128 @@
+flowchart TD
+    subgraph "Application Entry"
+        Load[Application Loads<br/>index.html]
+        Main[main.tsx<br/>React Entry Point]
+        App[App.tsx<br/>Main Component]
+    end
+
+    subgraph "Header Section"
+        Title[SWMS Title<br/>System Name]
+        Metrics[System Metrics<br/>Recovery Rate, Efficiency, Uptime]
+        Status[Online Status<br/>System Health Indicator]
+    end
+
+    subgraph "Navigation Tabs"
+        FabricatorTab[Fabricator Tab<br/>Manufacturing Control]
+        RecoveryTab[Recovery Tab<br/>Waste Processing]
+        InventoryTab[Inventory Tab<br/>Resource Management]
+        SystemsTab[Systems Tab<br/>System Monitoring]
+        IoTTab[IoT Tab<br/>Device Management]
+    end
+
+    subgraph "Fabricator Interface"
+        FAB_ItemList[Item Selection<br/>Available Products]
+        FAB_Materials[Material Requirements<br/>Resource Costs]
+        FAB_Progress[Fabrication Progress<br/>Build Status]
+        FAB_Collection[Item Collection<br/>Completed Products]
+    end
+
+    subgraph "Recovery Interface"
+        REC_Stats[Recovery Statistics<br/>Efficiency Metrics]
+        REC_Materials[Material Breakdown<br/>Recovery by Type]
+        REC_Queue[Processing Queue<br/>Waste Items]
+        REC_Process[Process Controls<br/>Recovery Actions]
+    end
+
+    subgraph "Inventory Interface"
+        INV_Overview[Material Inventory<br/>Stock Levels]
+        INV_Storage[Storage Management<br/>Bay Status]
+        INV_Alerts[Low Stock Alerts<br/>Restock Warnings]
+        INV_Metrics[Inventory Metrics<br/>Efficiency Stats]
+    end
+
+    subgraph "Systems Interface"
+        SYS_Components[System Components<br/>Equipment Status]
+        SYS_Bags[Waste Collection Bags<br/>Fill Levels]
+        SYS_Controls[Control Actions<br/>Maintenance Options]
+        SYS_Monitoring[Real-time Monitoring<br/>System Health]
+    end
+
+    subgraph "IoT Interface"
+        IOT_Status[System Status<br/>Overall Health]
+        IOT_Devices[Device Monitoring<br/>Sensor Data]
+        IOT_Alerts[System Alerts<br/>Notifications]
+        IOT_Controls[Device Controls<br/>Configuration]
+    end
+
+    subgraph "Footer Section"
+        Power[Power Metrics<br/>Energy Consumption]
+        System[System Status<br/>Connectivity]
+        Efficiency[Efficiency Stats<br/>Performance Data]
+        Timestamp[Last Update<br/>Timestamp]
+    end
+
+    Load --> Main
+    Main --> App
+    App --> Header
+    App --> Navigation
+    App --> Footer
+
+    Header --> Title
+    Header --> Metrics
+    Header --> Status
+
+    Navigation --> FabricatorTab
+    Navigation --> RecoveryTab
+    Navigation --> InventoryTab
+    Navigation --> SystemsTab
+    Navigation --> IoTTab
+
+    FabricatorTab --> FAB_ItemList
+    FAB_ItemList --> FAB_Materials
+    FAB_Materials --> FAB_Progress
+    FAB_Progress --> FAB_Collection
+
+    RecoveryTab --> REC_Stats
+    REC_Stats --> REC_Materials
+    REC_Materials --> REC_Queue
+    REC_Queue --> REC_Process
+
+    InventoryTab --> INV_Overview
+    INV_Overview --> INV_Storage
+    INV_Storage --> INV_Alerts
+    INV_Alerts --> INV_Metrics
+
+    SystemsTab --> SYS_Components
+    SYS_Components --> SYS_Bags
+    SYS_Bags --> SYS_Controls
+    SYS_Controls --> SYS_Monitoring
+
+    IoTTab --> IOT_Status
+    IOT_Status --> IOT_Devices
+    IOT_Devices --> IOT_Alerts
+    IOT_Alerts --> IOT_Controls
+
+    Footer --> Power
+    Footer --> System
+    Footer --> Efficiency
+    Footer --> Timestamp
+
+    classDef entry fill:#e3f2fd,stroke:#1976d2
+    classDef header fill:#f3e5f5,stroke:#7b1fa2
+    classDef nav fill:#e8f5e8,stroke:#388e3c
+    classDef fabricator fill:#fff3e0,stroke:#f57c00
+    classDef recovery fill:#fce4ec,stroke:#c2185b
+    classDef inventory fill:#e1f5fe,stroke:#0277bd
+    classDef systems fill:#f1f8e9,stroke:#689f38
+    classDef iot fill:#ede7f6,stroke:#5e35b1
+    classDef footer fill:#fafafa,stroke:#424242
+
+    class Load,Main,App entry
+    class Title,Metrics,Status header
+    class FabricatorTab,RecoveryTab,InventoryTab,SystemsTab,IoTTab nav
+    class FAB_ItemList,FAB_Materials,FAB_Progress,FAB_Collection fabricator
+    class REC_Stats,REC_Materials,REC_Queue,REC_Process recovery
+    class INV_Overview,INV_Storage,INV_Alerts,INV_Metrics inventory
+    class SYS_Components,SYS_Bags,SYS_Controls,SYS_Monitoring systems
+    class IOT_Status,IOT_Devices,IOT_Alerts,IOT_Controls iot
+    class Power,System,Efficiency,Timestamp footer

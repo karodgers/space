@@ -1,0 +1,102 @@
+classDiagram
+    class FabricatableItem {
+        +string id
+        +string name
+        +string category
+        +React.ReactNode icon
+        +string description
+        +number fabricationTime
+        +MaterialRequirement[] materials
+        +canCraftItem(): boolean
+    }
+
+    class Material {
+        +string id
+        +string name
+        +number quantity
+        +string unit
+    }
+
+    class CollectedItem {
+        +string id
+        +string itemId
+        +string name
+        +string collectedAt
+        +"ready" | "collected" status
+    }
+
+    class WasteItem {
+        +string id
+        +string name
+        +string category
+        +number weight
+        +boolean recoverable
+        +number recoveryRate
+        +"processing" | "recovered" | "disposed" | "pending" status
+    }
+
+    class InventoryItem {
+        +string id
+        +string name
+        +string category
+        +number quantity
+        +string unit
+        +number minThreshold
+        +number maxCapacity
+        +"recovered" | "fabricated" | "imported" source
+        +string lastUpdated
+        +number recoveryRate?
+        +getItemStatus(): string
+    }
+
+    class SystemComponent {
+        +string id
+        +string name
+        +"fabricator" | "processor" | "sensor" | "conveyor" type
+        +"online" | "offline" | "maintenance" | "error" | "standby" status
+        +boolean connected
+        +string location
+        +Record<string, MetricValue> metrics
+        +string lastUpdate
+    }
+
+    class MetricValue {
+        +number | string value
+        +string unit?
+        +"normal" | "warning" | "critical" status?
+    }
+
+    class WasteCollectionBag {
+        +string id
+        +string location
+        +number fillLevel
+        +number capacity
+        +boolean connected
+        +"normal" | "full" | "disconnected" | "error" status
+        +string lastEmptied
+        +string wasteType
+    }
+
+    class IoTDevice {
+        +string id
+        +string name
+        +string type
+        +"online" | "offline" | "warning" status
+        +number value
+        +string unit
+        +string lastUpdate
+        +string location
+    }
+
+    class SystemAlert {
+        +string id
+        +"warning" | "error" | "info" type
+        +string message
+        +string timestamp
+        +string device
+    }
+
+    FabricatableItem --> Material : requires
+    FabricatableItem --> CollectedItem : produces
+
+    SystemComponent --> MetricValue : contains

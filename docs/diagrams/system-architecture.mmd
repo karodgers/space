@@ -1,0 +1,61 @@
+graph TB
+    subgraph "User Layer"
+        UI[Web Browser Interface]
+    end
+
+    subgraph "Application Layer"
+        App[React Application]
+        Router[React Router]
+        State[State Management]
+    end
+
+    subgraph "Component Layer"
+        Fabricator[Fabricator Interface]
+        Recovery[Waste Recovery System]
+        Inventory[Inventory Management]
+        Systems[Integrated Systems Panel]
+        IoT[IoT System Panel]
+    end
+
+    subgraph "Service Layer"
+        API[API Services<br/>Future Implementation]
+        WS[WebSocket Services<br/>Future Implementation]
+        Storage[Local Storage<br/>Client-side]
+    end
+
+    subgraph "External Systems"
+        Printers[3D Printers]
+        Sensors[IoT Sensors]
+        WasteSys[Waste Processing Equipment]
+        StorageSys[Storage Systems]
+    end
+
+    UI --> App
+    App --> Router
+    App --> State
+    Router --> Fabricator
+    Router --> Recovery
+    Router --> Inventory
+    Router --> Systems
+    Router --> IoT
+
+    Fabricator -.-> API
+    Recovery -.-> API
+    Inventory -.-> API
+    Systems -.-> WS
+    IoT -.-> WS
+
+    API -.-> Printers
+    WS -.-> Sensors
+    API -.-> WasteSys
+    API -.-> StorageSys
+
+    State --> Storage
+
+    classDef current fill:#e1f5fe,stroke:#01579b
+    classDef future fill:#fff3e0,stroke:#e65100
+    classDef external fill:#f3e5f5,stroke:#4a148c
+
+    class UI,App,Router,State,Fabricator,Recovery,Inventory,Systems,IoT,Storage current
+    class API,WS future
+    class Printers,Sensors,WasteSys,StorageSys external

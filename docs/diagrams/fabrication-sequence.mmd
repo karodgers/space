@@ -1,0 +1,43 @@
+sequenceDiagram
+    participant U as User
+    participant UI as User Interface
+    participant FC as Fabricator Component
+    participant VL as Validation Logic
+    participant PB as Progress Bar
+    participant ST as Status Display
+    participant CL as Collection System
+
+    U->>UI: Click on item in list
+    UI->>FC: Item selection event
+    FC->>VL: Check material availability
+    VL-->>FC: Validation result
+
+    alt Materials available
+        FC->>UI: Enable "Create Item" button
+        U->>UI: Click "Create Item"
+        UI->>FC: Fabrication start request
+        FC->>PB: Initialize progress (0%)
+        FC->>ST: Update status to "crafting"
+
+        loop Fabrication process
+            FC->>PB: Update progress incrementally
+            PB-->>UI: Display progress
+            ST-->>UI: Show "Fabricating..." status
+        end
+
+        FC->>PB: Set progress to 100%
+        FC->>ST: Update status to "done"
+        UI->>U: Show "Fabrication Complete" message
+
+        U->>UI: Click "Collect Item"
+        UI->>FC: Collection request
+        FC->>CL: Add item to collected items
+        CL-->>FC: Collection confirmation
+        FC->>ST: Update status to "collected"
+        FC->>UI: Reset interface for next fabrication
+
+    else Materials insufficient
+        VL-->>FC: Validation failed
+        FC->>UI: Keep button disabled
+        UI->>U: Show "Insufficient materials" message
+    end
