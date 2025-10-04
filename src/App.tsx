@@ -92,35 +92,35 @@ export default function App() {
             <TabsList className="grid w-full grid-cols-5 bg-slate-800/50 border border-slate-700">
               <TabsTrigger 
                 value="fabricator" 
-                className="flex items-center gap-2 data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
+                className="flex items-center gap-2 text-white data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
               >
                 <Factory className="w-4 h-4" />
                 <span className="hidden sm:inline">Fabricator</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="recovery" 
-                className="flex items-center gap-2 data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
+                className="flex items-center gap-2 text-white data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
               >
                 <Recycle className="w-4 h-4" />
                 <span className="hidden sm:inline">Recovery</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="inventory" 
-                className="flex items-center gap-2 data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
+                className="flex items-center gap-2 text-white data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
               >
                 <Package className="w-4 h-4" />
                 <span className="hidden sm:inline">Inventory</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="systems" 
-                className="flex items-center gap-2 data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
+                className="flex items-center gap-2 text-white data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
               >
                 <Monitor className="w-4 h-4" />
                 <span className="hidden sm:inline">Systems</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="iot" 
-                className="flex items-center gap-2 data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
+                className="flex items-center gap-2 text-white data-[state=active]:bg-slate-700 data-[state=active]:text-cyan-400"
               >
                 <Wifi className="w-4 h-4" />
                 <span className="hidden sm:inline">IoT</span>
