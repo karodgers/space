@@ -38,7 +38,7 @@ Before installing the Space Waste Management System, ensure your system meets th
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-organization/space-waste-management-system.git
+git clone https://github.com/spaceanization/space-waste-management-system.git
 
 # Navigate to the project directory
 cd space-waste-management-system
