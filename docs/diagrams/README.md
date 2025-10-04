@@ -45,6 +45,13 @@ All `.mmd` files render automatically as diagrams when viewed on GitHub in repos
 | `fabrication-sequence.mmd` | Fabrication process workflow sequence |
 | `fabrication-states.mmd` | Fabrication state transitions and lifecycle |
 | `data-structures.mmd` | Class diagram of data models and relationships |
+| `user-journey.mmd` | User journey map for astronauts, ground control, and administrators |
+| `system-operation-flow.mmd` | Complete end-to-end system operation from waste to analytics |
+| `fabrication-user-flow.mmd` | Detailed fabrication workflow with validation and error handling |
+| `waste-recovery-user-flow.mmd` | Waste recovery operations including batch processing and safety |
+| `inventory-management-flow.mmd` | Inventory management with alerts, optimization, and analytics |
+| `system-monitoring-flow.mmd` | System monitoring with diagnostics, maintenance, and emergency response |
+| `iot-management-flow.mmd` | IoT device management covering monitoring, control, and maintenance |
 
 ## Diagram Types
 
