@@ -40,7 +40,7 @@ The application follows a component-based architecture with modular design, ensu
 
 1. Clone the repository:
  ```bash
- git clone <repository-url>
+ git clone https://github.com/karodgers/space.git
  cd space-waste-management-system
  ```
 
