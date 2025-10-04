@@ -1,0 +1,142 @@
+flowchart TD
+    subgraph "System Access"
+        UserLogin[User Logs Into<br/>System]
+        NavigateInventory[Navigate to<br/>Inventory Tab]
+        LoadDashboard[Load Inventory<br/>Dashboard]
+    end
+
+    subgraph "Overview Assessment"
+        ViewSummary[View Inventory<br/>Summary Statistics]
+        CheckAlerts[Check Active<br/>Alerts & Warnings]
+        ReviewTrends[Review Usage<br/>Trends & Patterns]
+        IdentifyIssues[Identify Stock<br/>Issues & Anomalies]
+    end
+
+    subgraph "Detailed Inventory Review"
+        BrowseCategories[Browse by<br/>Material Categories]
+        ExamineItems[Examine Specific<br/>Inventory Items]
+        ViewDetails[View Item Details<br/>Quantities & History]
+        CheckThresholds[Check Against<br/>Threshold Levels]
+    end
+
+    subgraph "Stock Level Analysis"
+        LowStockItems{Low Stock<br/>Items?}
+        OptimalStock[Items at<br/>Optimal Levels]
+        OverstockItems[Items at<br/>Risk of Overstock]
+        CriticalStock[Items at<br/>Critical Levels]
+    end
+
+    subgraph "Action Planning"
+        RestockPlanning[Plan Restocking<br/>for Low Items]
+        Redistribution[Plan Material<br/>Redistribution]
+        UsageOptimization[Optimize Usage<br/>Patterns]
+        Procurement[Initiate Procurement<br/>Requests]
+    end
+
+    subgraph "Storage Management"
+        ReviewLocations[Review Storage<br/>Bay Status]
+        CapacityAnalysis[Analyze Storage<br/>Capacity Usage]
+        Optimization[Identify Storage<br/>Optimization Opportunities]
+        Reorganization[Plan Storage<br/>Reorganization]
+    end
+
+    subgraph "Data Synchronization"
+        ManualSync[Perform Manual<br/>Inventory Sync]
+        AutoSync[Configure Auto<br/>Synchronization]
+        ValidateData[Validate Data<br/>Accuracy]
+        ResolveConflicts[Resolve Data<br/>Conflicts]
+    end
+
+    subgraph "Reporting & Analytics"
+        GenerateReports[Generate Inventory<br/>Reports]
+        UsageAnalytics[Analyze Usage<br/>Patterns]
+        ForecastDemand[Forecast Future<br/>Demand]
+        PerformanceMetrics[Review Performance<br/>Metrics]
+    end
+
+    subgraph "Alert Management"
+        ConfigureAlerts[Configure Alert<br/>Thresholds]
+        AlertNotifications[Set Up Alert<br/>Notifications]
+        EscalationRules[Define Escalation<br/>Rules]
+        ResponseProcedures[Establish Response<br/>Procedures]
+    end
+
+    subgraph "Maintenance Tasks"
+        DataBackup[Perform Data<br/>Backup]
+        SystemHealth[Check System<br/>Health]
+        Calibration[Calibrate Sensors<br/>& Measurements]
+        UpdateProcedures[Update Inventory<br/>Procedures]
+    end
+
+    UserLogin --> NavigateInventory
+    NavigateInventory --> LoadDashboard
+    LoadDashboard --> ViewSummary
+
+    ViewSummary --> CheckAlerts
+    CheckAlerts --> ReviewTrends
+    ReviewTrends --> IdentifyIssues
+    IdentifyIssues --> BrowseCategories
+
+    BrowseCategories --> ExamineItems
+    ExamineItems --> ViewDetails
+    ViewDetails --> CheckThresholds
+    CheckThresholds --> LowStockItems
+
+    LowStockItems -->|Yes| CriticalStock
+    LowStockItems -->|No| OptimalStock
+    LowStockItems -->|Overstock| OverstockItems
+
+    CriticalStock --> RestockPlanning
+    OptimalStock --> UsageOptimization
+    OverstockItems --> Redistribution
+
+    RestockPlanning --> Procurement
+    Redistribution --> Reorganization
+    UsageOptimization --> ForecastDemand
+
+    LoadDashboard --> ReviewLocations
+    ReviewLocations --> CapacityAnalysis
+    CapacityAnalysis --> Optimization
+    Optimization --> Reorganization
+
+    LoadDashboard --> ManualSync
+    ManualSync --> AutoSync
+    AutoSync --> ValidateData
+    ValidateData --> ResolveConflicts
+
+    LoadDashboard --> GenerateReports
+    GenerateReports --> UsageAnalytics
+    UsageAnalytics --> ForecastDemand
+    ForecastDemand --> PerformanceMetrics
+
+    CheckAlerts --> ConfigureAlerts
+    ConfigureAlerts --> AlertNotifications
+    AlertNotifications --> EscalationRules
+    EscalationRules --> ResponseProcedures
+
+    LoadDashboard --> DataBackup
+    DataBackup --> SystemHealth
+    SystemHealth --> Calibration
+    Calibration --> UpdateProcedures
+
+    classDef access fill:#e3f2fd,stroke:#1976d2
+    classDef overview fill:#f3e5f5,stroke:#7b1fa2
+    classDef review fill:#e8f5e8,stroke:#388e3c
+    classDef analysis fill:#fff3e0,stroke:#f57c00
+    classDef planning fill:#fce4ec,stroke:#c2185b
+    classDef storage fill:#e1f5fe,stroke:#0277bd
+    classDef sync fill:#f1f8e9,stroke:#689f38
+    classDef reporting fill:#e8eaf6,stroke:#3f51b5
+    classDef alerts fill:#fce4ec,stroke:#e91e63
+    classDef maintenance fill:#f3e5f5,stroke:#9c27b0
+
+    class UserLogin,NavigateInventory,LoadDashboard access
+    class ViewSummary,CheckAlerts,ReviewTrends,IdentifyIssues overview
+    class BrowseCategories,ExamineItems,ViewDetails,CheckThresholds review
+    class LowStockItems,OptimalStock,OverstockItems,CriticalStock analysis
+    class RestockPlanning,Redistribution,UsageOptimization,Procurement planning
+    class ReviewLocations,CapacityAnalysis,Optimization,Reorganization storage
+    class ManualSync,AutoSync,ValidateData,ResolveConflicts sync
+    class GenerateReports,UsageAnalytics,ForecastDemand,PerformanceMetrics reporting
+    class ConfigureAlerts,AlertNotifications,EscalationRules,ResponseProcedures alerts
+    class DataBackup,SystemHealth,Calibration,UpdateProcedures maintenance

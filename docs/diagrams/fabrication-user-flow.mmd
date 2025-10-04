@@ -1,0 +1,115 @@
+flowchart TD
+    subgraph "User Access"
+        Login[User Logs In<br/>to System]
+        Dashboard[Access Main<br/>Dashboard]
+        NavigateFab[Navigate to<br/>Fabricator Tab]
+    end
+
+    subgraph "Item Selection Phase"
+        BrowseItems[Browse Available<br/>Fabricatable Items]
+        ViewDetails[View Item Details<br/>Requirements & Description]
+        SelectItem[Select Desired<br/>Item to Fabricate]
+        ConfirmSelection[Confirm Item<br/>Selection]
+    end
+
+    subgraph "Material Verification"
+        CheckMaterials[System Checks<br/>Material Availability]
+        DisplayRequirements[Display Required<br/>Materials & Quantities]
+        ShowAvailability[Show Available vs<br/>Required Amounts]
+    end
+
+    subgraph "Validation & Decision"
+        SufficientMaterials{Materials<br/>Sufficient?}
+        InsufficientMaterials[Display Error:<br/>Insufficient Materials]
+        AlternativeItems[Suggest Alternative<br/>Items or Wait]
+        ProceedFabrication[Proceed to<br/>Fabrication]
+    end
+
+    subgraph "Fabrication Process"
+        StartFabrication[Initiate Fabrication<br/>Process]
+        ProgressBar[Display Progress<br/>Bar & Time]
+        RealTimeUpdates[Show Real-time<br/>Status Updates]
+        ProcessSteps[Display Current<br/>Process Step]
+    end
+
+    subgraph "Completion & Collection"
+        FabricationComplete[Fabrication<br/>Completes Successfully]
+        CompletionNotification[Show Completion<br/>Notification]
+        CollectionPrompt[Prompt for Item<br/>Collection]
+        CollectItem[User Collects<br/>Fabricated Item]
+    end
+
+    subgraph "Post-Collection"
+        UpdateInventory[Update System<br/>Inventory]
+        LogTransaction[Log Fabrication<br/>Transaction]
+        ResetInterface[Reset Interface<br/>for Next Item]
+        GenerateReport[Generate Usage<br/>Report]
+    end
+
+    subgraph "Error Handling"
+        ProcessError[Process Error<br/>Occurs]
+        ErrorNotification[Display Error<br/>Notification]
+        RetryOption[Offer Retry<br/>Option]
+        CancelProcess[Cancel Process<br/>and Reset]
+    end
+
+    Login --> Dashboard
+    Dashboard --> NavigateFab
+    NavigateFab --> BrowseItems
+
+    BrowseItems --> ViewDetails
+    ViewDetails --> SelectItem
+    SelectItem --> ConfirmSelection
+    ConfirmSelection --> CheckMaterials
+
+    CheckMaterials --> DisplayRequirements
+    DisplayRequirements --> ShowAvailability
+    ShowAvailability --> SufficientMaterials
+
+    SufficientMaterials -->|Yes| ProceedFabrication
+    SufficientMaterials -->|No| InsufficientMaterials
+
+    InsufficientMaterials --> AlternativeItems
+    AlternativeItems --> BrowseItems
+    AlternativeItems --> WaitForMaterials[Wait for Waste<br/>Recovery to Add Materials]
+
+    ProceedFabrication --> StartFabrication
+    StartFabrication --> ProgressBar
+    ProgressBar --> RealTimeUpdates
+    RealTimeUpdates --> ProcessSteps
+
+    ProcessSteps --> FabricationComplete
+    FabricationComplete --> CompletionNotification
+    CompletionNotification --> CollectionPrompt
+    CollectionPrompt --> CollectItem
+
+    CollectItem --> UpdateInventory
+    UpdateInventory --> LogTransaction
+    LogTransaction --> ResetInterface
+    ResetInterface --> GenerateReport
+
+    StartFabrication --> ProcessError
+    ProgressBar --> ProcessError
+    ProcessError --> ErrorNotification
+    ErrorNotification --> RetryOption
+    ErrorNotification --> CancelProcess
+    RetryOption --> StartFabrication
+    CancelProcess --> ResetInterface
+
+    classDef access fill:#e3f2fd,stroke:#1976d2
+    classDef selection fill:#f3e5f5,stroke:#7b1fa2
+    classDef verification fill:#e8f5e8,stroke:#388e3c
+    classDef decision fill:#fff3e0,stroke:#f57c00
+    classDef process fill:#fce4ec,stroke:#c2185b
+    classDef completion fill:#e1f5fe,stroke:#0277bd
+    classDef post fill:#f1f8e9,stroke:#689f38
+    classDef error fill:#ffebee,stroke:#c62828
+
+    class Login,Dashboard,NavigateFab access
+    class BrowseItems,ViewDetails,SelectItem,ConfirmSelection selection
+    class CheckMaterials,DisplayRequirements,ShowAvailability verification
+    class SufficientMaterials,InsufficientMaterials,AlternativeItems,ProceedFabrication decision
+    class StartFabrication,ProgressBar,RealTimeUpdates,ProcessSteps process
+    class FabricationComplete,CompletionNotification,CollectionPrompt,CollectItem completion
+    class UpdateInventory,LogTransaction,ResetInterface,GenerateReport post
+    class ProcessError,ErrorNotification,RetryOption,CancelProcess error

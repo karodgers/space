@@ -1,0 +1,147 @@
+flowchart TD
+    subgraph "System Access"
+        UserLogin[User Logs Into<br/>IoT Management System]
+        NavigateIoT[Navigate to<br/>IoT Tab]
+        LoadIoTDashboard[Load IoT<br/>Dashboard]
+    end
+
+    subgraph "System Overview"
+        ViewSystemHealth[View Overall<br/>System Health]
+        CheckConnectivity[Check Device<br/>Connectivity Status]
+        MonitorDataFlow[Monitor Data<br/>Transmission Rates]
+        ReviewBackupStatus[Review System<br/>Backup Status]
+    end
+
+    subgraph "Device Monitoring"
+        SelectDeviceCategory[Select Device<br/>Category/Type]
+        ViewDeviceList[View Connected<br/>Device List]
+        ExamineDevice[Examine Specific<br/>Device Details]
+        CheckDeviceStatus[Check Device<br/>Operational Status]
+    end
+
+    subgraph "Device Management"
+        DeviceStatus{Device<br/>Status?}
+        OnlineDevices[Online Devices<br/>Normal Operation]
+        OfflineDevices[Offline Devices<br/>Connection Issues]
+        WarningDevices[Warning Devices<br/>Abnormal Readings]
+    end
+
+    subgraph "Data Analysis"
+        ViewSensorData[View Real-time<br/>Sensor Data]
+        AnalyzeTrends[Analyze Data<br/>Trends & Patterns]
+        SetThresholds[Set Alert<br/>Thresholds]
+        ConfigureMonitoring[Configure Monitoring<br/>Parameters]
+    end
+
+    subgraph "Alert Management"
+        ReviewSystemAlerts[Review System<br/>Alerts & Notifications]
+        AlertType{Alert<br/>Type?}
+        ErrorAlerts[Error Alerts<br/>Critical Issues]
+        WarningAlerts[Warning Alerts<br/>Potential Issues]
+        InfoAlerts[Info Alerts<br/>Status Updates]
+    end
+
+    subgraph "Device Control"
+        ControlActions{Control<br/>Action Needed?}
+        ReconnectDevices[Reconnect Offline<br/>Devices]
+        ResetDevices[Reset Device<br/>Configurations]
+        UpdateFirmware[Update Device<br/>Firmware]
+        CalibrateSensors[Calibrate Sensor<br/>Readings]
+    end
+
+    subgraph "Maintenance Operations"
+        ScheduleMaintenance[Schedule Device<br/>Maintenance]
+        PerformDiagnostics[Perform Device<br/>Diagnostics]
+        UpdateConfigurations[Update Device<br/>Configurations]
+        DocumentChanges[Document Configuration<br/>Changes]
+    end
+
+    subgraph "Network Management"
+        MonitorNetwork[Monitor Network<br/>Performance]
+        OptimizeConnectivity[Optimize Device<br/>Connectivity]
+        ManageBandwidth[Manage Bandwidth<br/>Usage]
+        SecurityUpdates[Apply Security<br/>Updates]
+    end
+
+    subgraph "Reporting & Analytics"
+        GenerateDeviceReports[Generate Device<br/>Performance Reports]
+        AnalyzeEfficiency[Analyze System<br/>Efficiency]
+        PredictFailures[Predict Device<br/>Failures]
+        OptimizeDeployment[Optimize Device<br/>Deployment]
+    end
+
+    UserLogin --> NavigateIoT
+    NavigateIoT --> LoadIoTDashboard
+    LoadIoTDashboard --> ViewSystemHealth
+
+    ViewSystemHealth --> CheckConnectivity
+    CheckConnectivity --> MonitorDataFlow
+    MonitorDataFlow --> ReviewBackupStatus
+
+    ViewSystemHealth --> SelectDeviceCategory
+    SelectDeviceCategory --> ViewDeviceList
+    ViewDeviceList --> ExamineDevice
+    ExamineDevice --> CheckDeviceStatus
+    CheckDeviceStatus --> DeviceStatus
+
+    DeviceStatus -->|Online| OnlineDevices
+    DeviceStatus -->|Offline| OfflineDevices
+    DeviceStatus -->|Warning| WarningDevices
+
+    ExamineDevice --> ViewSensorData
+    ViewSensorData --> AnalyzeTrends
+    AnalyzeTrends --> SetThresholds
+    SetThresholds --> ConfigureMonitoring
+
+    ViewSystemHealth --> ReviewSystemAlerts
+    ReviewSystemAlerts --> AlertType
+
+    AlertType -->|Error| ErrorAlerts
+    AlertType -->|Warning| WarningAlerts
+    AlertType -->|Info| InfoAlerts
+
+    ErrorAlerts --> ControlActions
+    WarningAlerts --> ControlActions
+    OfflineDevices --> ControlActions
+
+    ControlActions -->|Reconnect| ReconnectDevices
+    ControlActions -->|Reset| ResetDevices
+    ControlActions -->|Update| UpdateFirmware
+    ControlActions -->|Calibrate| CalibrateSensors
+
+    ExamineDevice --> ScheduleMaintenance
+    ScheduleMaintenance --> PerformDiagnostics
+    PerformDiagnostics --> UpdateConfigurations
+    UpdateConfigurations --> DocumentChanges
+
+    ViewSystemHealth --> MonitorNetwork
+    MonitorNetwork --> OptimizeConnectivity
+    OptimizeConnectivity --> ManageBandwidth
+    ManageBandwidth --> SecurityUpdates
+
+    ViewSystemHealth --> GenerateDeviceReports
+    GenerateDeviceReports --> AnalyzeEfficiency
+    AnalyzeEfficiency --> PredictFailures
+    PredictFailures --> OptimizeDeployment
+
+    classDef access fill:#e3f2fd,stroke:#1976d2
+    classDef overview fill:#f3e5f5,stroke:#7b1fa2
+    classDef monitoring fill:#e8f5e8,stroke:#388e3c
+    classDef management fill:#fff3e0,stroke:#f57c00
+    classDef analysis fill:#fce4ec,stroke:#c2185b
+    classDef alerts fill:#e1f5fe,stroke:#0277bd
+    classDef control fill:#f1f8e9,stroke:#689f38
+    classDef maintenance fill:#e8eaf6,stroke:#3f51b5
+    classDef network fill:#fce4ec,stroke:#e91e63
+    classDef reporting fill:#f3e5f5,stroke:#9c27b0
+
+    class UserLogin,NavigateIoT,LoadIoTDashboard access
+    class ViewSystemHealth,CheckConnectivity,MonitorDataFlow,ReviewBackupStatus overview
+    class SelectDeviceCategory,ViewDeviceList,ExamineDevice,CheckDeviceStatus monitoring
+    class DeviceStatus,OnlineDevices,OfflineDevices,WarningDevices management
+    class ViewSensorData,AnalyzeTrends,SetThresholds,ConfigureMonitoring analysis
+    class ReviewSystemAlerts,AlertType,ErrorAlerts,WarningAlerts,InfoAlerts alerts
+    class ControlActions,ReconnectDevices,ResetDevices,UpdateFirmware,CalibrateSensors control
+    class ScheduleMaintenance,PerformDiagnostics,UpdateConfigurations,DocumentChanges maintenance
+    class MonitorNetwork,OptimizeConnectivity,ManageBandwidth,SecurityUpdates network
+    class GenerateDeviceReports,AnalyzeEfficiency,PredictFailures,OptimizeDeployment reporting
