@@ -125,11 +125,11 @@ const SpaceFabricator = () => {
       ]
     },
     {
-      id: '3D Printable Life Support item',
-      name: '3D Printable Life Support item',
+      id: 'forceps and scalpel',
+      name: 'Forceps and Scalpel',
       category: 'Life Support',
       icon: <Heart className="w-5 h-5 text-blue-400" />,
-      description: 'Atmospheric purification and recycling unit',
+      description: 'Basic surgical tools for medical procedures',
       fabricationTime: 18,
       materials: [
         { id: 'metal-scraps', quantity: 12 },
