@@ -131,7 +131,7 @@ The Fabricator interface manages 3D printing and manufacturing operations.
 
 Browse the left panel to view fabricatable items, organized by category:
 
-- **Life Support**: Water filters, air scrubbers
+- **Life Support**: Water filters, Forceps and Scalpel
 - **Maintenance**: Repair kits, tools
 - **Sustenance**: Nutrient packs, hydroponic trays
 - **Power**: Solar panels, energy cells
