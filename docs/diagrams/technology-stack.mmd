@@ -1,0 +1,89 @@
+graph TD
+    subgraph "Development Tools"
+        Vite[Vite<br/>Build Tool & Dev Server]
+        TypeScript[TypeScript<br/>Type Safety]
+        ESLint[ESLint<br/>Code Quality]
+        Prettier[Prettier<br/>Code Formatting]
+    end
+
+    subgraph "Core Framework"
+        React[React 18<br/>UI Framework]
+        ReactDOM[React DOM<br/>Rendering Engine]
+    end
+
+    subgraph "UI Components"
+        RadixUI[Radix UI<br/>Primitive Components]
+        ShadcnUI[shadcn/ui<br/>Component Library]
+        TailwindCSS[Tailwind CSS<br/>Utility Styling]
+        LucideReact[Lucide React<br/>Icon Library]
+    end
+
+    subgraph "State & Data"
+        ReactHooks[React Hooks<br/>State Management]
+        LocalStorage[Local Storage<br/>Data Persistence]
+        MockData[Mock Data<br/>Simulation Data]
+    end
+
+    subgraph "Build & Deployment"
+        Rollup[Rollup<br/>Bundler]
+        SWC[SWC<br/>Fast Compiler]
+        PostCSS[PostCSS<br/>CSS Processing]
+        Autoprefixer[Autoprefixer<br/>CSS Prefixing]
+    end
+
+    subgraph "Testing & Quality"
+        Jest[Jest<br/>Test Framework]
+        ReactTesting[React Testing Library<br/>Component Testing]
+        AxeCore[axe-core<br/>Accessibility Testing]
+        Coverage[Istanbul<br/>Code Coverage]
+    end
+
+    subgraph "Package Management"
+        NPM[NPM<br/>Package Registry]
+        PackageJson[package.json<br/>Dependencies]
+        LockFile[package-lock.json<br/>Lock File]
+    end
+
+    Vite --> React
+    Vite --> TypeScript
+    Vite --> ESLint
+    Vite --> Prettier
+
+    React --> ReactDOM
+
+    React --> RadixUI
+    RadixUI --> ShadcnUI
+    ShadcnUI --> TailwindCSS
+    ShadcnUI --> LucideReact
+
+    React --> ReactHooks
+    ReactHooks --> LocalStorage
+    ReactHooks --> MockData
+
+    Vite --> Rollup
+    Rollup --> SWC
+    TailwindCSS --> PostCSS
+    PostCSS --> Autoprefixer
+
+    Jest --> ReactTesting
+    ReactTesting --> AxeCore
+    Jest --> Coverage
+
+    NPM --> PackageJson
+    PackageJson --> LockFile
+
+    classDef tools fill:#e3f2fd,stroke:#1976d2
+    classDef framework fill:#f3e5f5,stroke:#7b1fa2
+    classDef ui fill:#e8f5e8,stroke:#388e3c
+    classDef data fill:#fff3e0,stroke:#f57c00
+    classDef build fill:#fce4ec,stroke:#c2185b
+    classDef testing fill:#e1f5fe,stroke:#0277bd
+    classDef package fill:#f1f8e9,stroke:#689f38
+
+    class Vite,TypeScript,ESLint,Prettier tools
+    class React,ReactDOM framework
+    class RadixUI,ShadcnUI,TailwindCSS,LucideReact ui
+    class ReactHooks,LocalStorage,MockData data
+    class Rollup,SWC,PostCSS,Autoprefixer build
+    class Jest,ReactTesting,AxeCore,Coverage testing
+    class NPM,PackageJson,LockFile package

@@ -1,0 +1,79 @@
+flowchart TD
+    subgraph "User Interactions"
+        Click[User Clicks<br/>Interface Elements]
+        Input[User Inputs<br/>Data/Commands]
+        Navigate[User Navigates<br/>Between Panels]
+    end
+
+    subgraph "React Components"
+        UI[UI Components<br/>Render Interface]
+        State[Component State<br/>Local Data]
+        Props[Props Flow<br/>Data Passing]
+        Events[Event Handlers<br/>User Actions]
+    end
+
+    subgraph "Application Logic"
+        BusinessLogic[Business Logic<br/>Data Processing]
+        Validation[Input Validation<br/>Data Sanitization]
+        Calculations[Calculations<br/>Metrics/Stats]
+        Formatting[Data Formatting<br/>Display Prep]
+    end
+
+    subgraph "Data Storage"
+        LocalStorage[Local Storage<br/>Persistent Data]
+        SessionStorage[Session Storage<br/>Temporary Data]
+        Memory[In-Memory State<br/>Runtime Data]
+    end
+
+    subgraph "Simulated External Data"
+        MockData[Mock Data<br/>Predefined Datasets]
+        RandomGen[Random Generation<br/>Dynamic Values]
+        Timers[Timer Updates<br/>Periodic Refresh]
+    end
+
+    subgraph "Display Updates"
+        ReRender[Component Re-render<br/>UI Updates]
+        VisualFeedback[Visual Feedback<br/>Status Indicators]
+        RealTimeUpdates[Real-time Updates<br/>Live Data Display]
+    end
+
+    Click --> Events
+    Input --> Events
+    Navigate --> Events
+
+    Events --> Validation
+    Events --> BusinessLogic
+
+    Validation --> Calculations
+    BusinessLogic --> Calculations
+    Calculations --> Formatting
+
+    Formatting --> State
+    State --> Props
+    Props --> UI
+
+    UI --> ReRender
+    ReRender --> VisualFeedback
+    VisualFeedback --> RealTimeUpdates
+
+    State --> Memory
+    Memory --> LocalStorage
+    Memory --> SessionStorage
+
+    MockData --> BusinessLogic
+    RandomGen --> BusinessLogic
+    Timers --> BusinessLogic
+
+    classDef input fill:#e3f2fd,stroke:#1976d2
+    classDef component fill:#f3e5f5,stroke:#7b1fa2
+    classDef logic fill:#e8f5e8,stroke:#388e3c
+    classDef storage fill:#fff3e0,stroke:#f57c00
+    classDef simulation fill:#fce4ec,stroke:#c2185b
+    classDef output fill:#f3e5f5,stroke:#7b1fa2
+
+    class Click,Input,Navigate input
+    class UI,State,Props,Events component
+    class BusinessLogic,Validation,Calculations,Formatting logic
+    class LocalStorage,SessionStorage,Memory storage
+    class MockData,RandomGen,Timers simulation
+    class ReRender,VisualFeedback,RealTimeUpdates output

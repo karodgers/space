@@ -1,0 +1,141 @@
+flowchart TD
+    subgraph "System Access"
+        UserAuthentication[User Authenticates<br/>and Logs In]
+        AccessDashboard[Access Main<br/>System Dashboard]
+        NavigateSystems[Navigate to<br/>Systems Tab]
+    end
+
+    subgraph "System Overview"
+        ViewSystemStatus[View Overall<br/>System Status]
+        CheckHealthMetrics[Check System<br/>Health Metrics]
+        ReviewAlerts[Review Active<br/>System Alerts]
+        MonitorPerformance[Monitor System<br/>Performance]
+    end
+
+    subgraph "Component Monitoring"
+        SelectComponent[Select Specific<br/>System Component]
+        ViewComponentDetails[View Component<br/>Details & Status]
+        CheckMetrics[Check Component<br/>Performance Metrics]
+        ReviewHistory[Review Component<br/>Operational History]
+    end
+
+    subgraph "Waste Collection Monitoring"
+        ViewCollectionBags[View Waste<br/>Collection Bags]
+        CheckFillLevels[Check Bag Fill<br/>Levels & Status]
+        MonitorLocations[Monitor Collection<br/>Locations]
+        TrackEmptied[Track Last Emptied<br/>Times]
+    end
+
+    subgraph "Alert Management"
+        ReviewActiveAlerts[Review Active<br/>System Alerts]
+        PrioritizeAlerts[Prioritize Alerts<br/>by Severity]
+        InvestigateIssues[Investigate Alert<br/>Root Causes]
+        TakeCorrectiveAction[Take Corrective<br/>Actions]
+    end
+
+    subgraph "Maintenance Operations"
+        IdentifyMaintenance[Identify Components<br/>Requiring Maintenance]
+        ScheduleMaintenance[Schedule Maintenance<br/>Activities]
+        ExecuteMaintenance[Execute Maintenance<br/>Procedures]
+        UpdateRecords[Update Maintenance<br/>Records]
+    end
+
+    subgraph "Control Operations"
+        ComponentControl{Component<br/>Control Needed?}
+        PauseOperations[Pause Component<br/>Operations]
+        ResumeOperations[Resume Component<br/>Operations]
+        AdjustParameters[Adjust Component<br/>Parameters]
+        EmergencyShutdown[Execute Emergency<br/>Shutdown if Required]
+    end
+
+    subgraph "Diagnostic Operations"
+        RunDiagnostics[Run System<br/>Diagnostics]
+        AnalyzeResults[Analyze Diagnostic<br/>Results]
+        IdentifyProblems[Identify System<br/>Problems]
+        GenerateReports[Generate Diagnostic<br/>Reports]
+    end
+
+    subgraph "Reporting & Analytics"
+        GenerateStatusReports[Generate System<br/>Status Reports]
+        AnalyzeTrends[Analyze System<br/>Performance Trends]
+        PredictIssues[Predict Potential<br/>Issues]
+        OptimizePerformance[Optimize System<br/>Performance]
+    end
+
+    subgraph "Emergency Response"
+        DetectEmergency[Detect Emergency<br/>Situation]
+        ActivateProtocols[Activate Emergency<br/>Response Protocols]
+        CoordinateResponse[Coordinate Response<br/>Efforts]
+        DocumentIncident[Document Incident<br/>and Resolution]
+    end
+
+    UserAuthentication --> AccessDashboard
+    AccessDashboard --> NavigateSystems
+    NavigateSystems --> ViewSystemStatus
+
+    ViewSystemStatus --> CheckHealthMetrics
+    CheckHealthMetrics --> ReviewAlerts
+    ReviewAlerts --> MonitorPerformance
+
+    ViewSystemStatus --> SelectComponent
+    SelectComponent --> ViewComponentDetails
+    ViewComponentDetails --> CheckMetrics
+    CheckMetrics --> ReviewHistory
+
+    ViewSystemStatus --> ViewCollectionBags
+    ViewCollectionBags --> CheckFillLevels
+    CheckFillLevels --> MonitorLocations
+    MonitorLocations --> TrackEmptied
+
+    ReviewAlerts --> ReviewActiveAlerts
+    ReviewActiveAlerts --> PrioritizeAlerts
+    PrioritizeAlerts --> InvestigateIssues
+    InvestigateIssues --> TakeCorrectiveAction
+
+    ViewComponentDetails --> IdentifyMaintenance
+    IdentifyMaintenance --> ScheduleMaintenance
+    ScheduleMaintenance --> ExecuteMaintenance
+    ExecuteMaintenance --> UpdateRecords
+
+    ViewComponentDetails --> ComponentControl
+    ComponentControl -->|Pause| PauseOperations
+    ComponentControl -->|Resume| ResumeOperations
+    ComponentControl -->|Adjust| AdjustParameters
+    ComponentControl -->|Emergency| EmergencyShutdown
+
+    ViewSystemStatus --> RunDiagnostics
+    RunDiagnostics --> AnalyzeResults
+    AnalyzeResults --> IdentifyProblems
+    IdentifyProblems --> GenerateReports
+
+    ViewSystemStatus --> GenerateStatusReports
+    GenerateStatusReports --> AnalyzeTrends
+    AnalyzeTrends --> PredictIssues
+    PredictIssues --> OptimizePerformance
+
+    ReviewAlerts --> DetectEmergency
+    DetectEmergency --> ActivateProtocols
+    ActivateProtocols --> CoordinateResponse
+    CoordinateResponse --> DocumentIncident
+
+    classDef access fill:#e3f2fd,stroke:#1976d2
+    classDef overview fill:#f3e5f5,stroke:#7b1fa2
+    classDef component fill:#e8f5e8,stroke:#388e3c
+    classDef collection fill:#fff3e0,stroke:#f57c00
+    classDef alerts fill:#fce4ec,stroke:#c2185b
+    classDef maintenance fill:#e1f5fe,stroke:#0277bd
+    classDef control fill:#f1f8e9,stroke:#689f38
+    classDef diagnostic fill:#e8eaf6,stroke:#3f51b5
+    classDef reporting fill:#fce4ec,stroke:#e91e63
+    classDef emergency fill:#ffebee,stroke:#c62828
+
+    class UserAuthentication,AccessDashboard,NavigateSystems access
+    class ViewSystemStatus,CheckHealthMetrics,ReviewAlerts,MonitorPerformance overview
+    class SelectComponent,ViewComponentDetails,CheckMetrics,ReviewHistory component
+    class ViewCollectionBags,CheckFillLevels,MonitorLocations,TrackEmptied collection
+    class ReviewActiveAlerts,PrioritizeAlerts,InvestigateIssues,TakeCorrectiveAction alerts
+    class IdentifyMaintenance,ScheduleMaintenance,ExecuteMaintenance,UpdateRecords maintenance
+    class ComponentControl,PauseOperations,ResumeOperations,AdjustParameters,EmergencyShutdown control
+    class RunDiagnostics,AnalyzeResults,IdentifyProblems,GenerateReports diagnostic
+    class GenerateStatusReports,AnalyzeTrends,PredictIssues,OptimizePerformance reporting
+    class DetectEmergency,ActivateProtocols,CoordinateResponse,DocumentIncident emergency

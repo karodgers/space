@@ -1,0 +1,105 @@
+flowchart TD
+    subgraph "Waste Generation"
+        WasteGen[Waste Generated<br/>in Station Areas]
+        WasteCollect[Waste Collected<br/>by Astronauts]
+        BagFill[Bags Filled<br/>Automatically]
+    end
+
+    subgraph "System Monitoring"
+        BagSensors[Bag Fill Sensors<br/>Monitor Levels]
+        SystemHealth[System Health<br/>Monitoring]
+        AlertSystem[Alert Generation<br/>for Issues]
+    end
+
+    subgraph "User Interface Access"
+        AstronautAccess[Astronaut Access<br/>System Interface]
+        GroundAccess[Ground Control<br/>Remote Monitoring]
+        AdminAccess[Administrator<br/>System Management]
+    end
+
+    subgraph "Waste Processing Workflow"
+        WasteIdentification[Waste Identification<br/>and Classification]
+        RecoveryDecision[Recovery Assessment<br/>Feasibility Check]
+        ProcessingStart[Processing Initiation<br/>System Activation]
+        MaterialExtraction[Material Extraction<br/>Recovery Process]
+        QualityControl[Quality Control<br/>Material Testing]
+    end
+
+    subgraph "Fabrication Workflow"
+        ItemSelection[Item Selection<br/>From Catalog]
+        MaterialCheck[Material Availability<br/>Inventory Check]
+        FabricationStart[Fabrication Initiation<br/>Process Start]
+        ProgressMonitoring[Progress Monitoring<br/>Real-time Updates]
+        QualityAssurance[Quality Assurance<br/>Item Verification]
+        ItemCollection[Item Collection<br/>Storage/Use]
+    end
+
+    subgraph "Inventory Management"
+        StockTracking[Stock Level Tracking<br/>Real-time Updates]
+        LowStockAlerts[Low Stock Alerts<br/>Automatic Notifications]
+        UsageAnalytics[Usage Analytics<br/>Consumption Patterns]
+        ResupplyPlanning[Resupply Planning<br/>Optimization]
+    end
+
+    subgraph "System Integration"
+        DataSynchronization[Data Synchronization<br/>Across Components]
+        StatusUpdates[Status Updates<br/>Real-time Communication]
+        ErrorHandling[Error Handling<br/>and Recovery]
+        PerformanceOptimization[Performance Optimization<br/>System Tuning]
+    end
+
+    subgraph "Reporting & Analytics"
+        EfficiencyReports[Efficiency Reports<br/>Performance Metrics]
+        UsageStatistics[Usage Statistics<br/>Operational Data]
+        PredictiveAnalytics[Predictive Analytics<br/>Trend Analysis]
+        MaintenanceScheduling[Maintenance Scheduling<br/>Preventive Actions]
+    end
+
+    WasteGen --> BagFill
+    BagFill --> BagSensors
+    BagSensors --> AlertSystem
+    AlertSystem --> AstronautAccess
+
+    AstronautAccess --> WasteIdentification
+    GroundAccess --> SystemHealth
+    AdminAccess --> SystemIntegration
+
+    WasteIdentification --> RecoveryDecision
+    RecoveryDecision --> ProcessingStart
+    ProcessingStart --> MaterialExtraction
+    MaterialExtraction --> QualityControl
+    QualityControl --> InventoryManagement
+
+    ItemSelection --> MaterialCheck
+    MaterialCheck --> FabricationStart
+    FabricationStart --> ProgressMonitoring
+    ProgressMonitoring --> QualityAssurance
+    QualityAssurance --> ItemCollection
+
+    StockTracking --> LowStockAlerts
+    LowStockAlerts --> ResupplyPlanning
+    UsageAnalytics --> PredictiveAnalytics
+
+    DataSynchronization --> StatusUpdates
+    StatusUpdates --> ErrorHandling
+    ErrorHandling --> PerformanceOptimization
+
+    EfficiencyReports --> MaintenanceScheduling
+    UsageStatistics --> PredictiveAnalytics
+
+    classDef input fill:#e3f2fd,stroke:#1976d2
+    classDef process fill:#f3e5f5,stroke:#7b1fa2
+    classDef user fill:#e8f5e8,stroke:#388e3c
+    classDef workflow fill:#fff3e0,stroke:#f57c00
+    classDef management fill:#fce4ec,stroke:#c2185b
+    classDef integration fill:#e1f5fe,stroke:#0277bd
+    classDef analytics fill:#f1f8e9,stroke:#689f38
+
+    class WasteGen,WasteCollect,BagFill input
+    class BagSensors,SystemHealth,AlertSystem process
+    class AstronautAccess,GroundAccess,AdminAccess user
+    class WasteIdentification,RecoveryDecision,ProcessingStart,MaterialExtraction,QualityControl workflow
+    class ItemSelection,MaterialCheck,FabricationStart,ProgressMonitoring,QualityAssurance,ItemCollection workflow
+    class StockTracking,LowStockAlerts,UsageAnalytics,ResupplyPlanning management
+    class DataSynchronization,StatusUpdates,ErrorHandling,PerformanceOptimization integration
+    class EfficiencyReports,UsageStatistics,PredictiveAnalytics,MaintenanceScheduling analytics

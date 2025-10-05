@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Waste-management-system"
+authors:
+- family-names: "Waste Management System Development Team"
+  given-names: ""
+  orcid: ""
+repository-code: "https://github.com/space/space"
+url: "https://waste-management-system.org"
+license: MIT
+preferred-citation:
+  type: software
+  title: "Waste-management-system"
+  authors:
+  - family-names: "Waste Management System Development Team"
+    given-names: ""
+    orcid: ""
+  repository-code: "https://github.com/space/space"
+  url: "https://waste-management-system.org"
+  license: MIT
+  version: 0.1.0
+  date-released: 2025-10-04
+  repository-artifact: "https://github.com/space/space/releases/tag/v0.1.0"

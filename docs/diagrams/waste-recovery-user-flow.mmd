@@ -1,0 +1,130 @@
+flowchart TD
+    subgraph "Access & Navigation"
+        AccessSystem[User Accesses<br/>System Interface]
+        NavigateRecovery[Navigate to<br/>Recovery Tab]
+        ViewDashboard[View Recovery<br/>Dashboard]
+    end
+
+    subgraph "Waste Assessment"
+        ReviewQueue[Review Waste<br/>Processing Queue]
+        ExamineItem[Examine Specific<br/>Waste Item Details]
+        CheckRecoverable[Check if Waste is<br/>Recoverable]
+        ViewStats[View Current<br/>Recovery Statistics]
+    end
+
+    subgraph "Processing Decision"
+        IsRecoverable{Waste<br/>Recoverable?}
+        HazardousWaste[Hazardous Waste<br/>Detected]
+        SafeDisposal[Initiate Safe<br/>Disposal Process]
+        ProceedRecovery[Proceed with<br/>Recovery Process]
+    end
+
+    subgraph "Recovery Process"
+        InitiateProcessing[Initiate Waste<br/>Processing]
+        MonitorProgress[Monitor Processing<br/>Progress]
+        TrackEfficiency[Track Recovery<br/>Efficiency]
+        QualityCheck[Perform Material<br/>Quality Check]
+    end
+
+    subgraph "Material Integration"
+        ExtractMaterials[Extract Recovered<br/>Materials]
+        UpdateInventory[Update System<br/>Inventory]
+        LogRecovery[Log Recovery<br/>Transaction]
+        UpdateStats[Update Recovery<br/>Statistics]
+    end
+
+    subgraph "Completion & Reporting"
+        ProcessComplete[Processing<br/>Completes]
+        GenerateReport[Generate Recovery<br/>Report]
+        NotifySuccess[Notify Successful<br/>Recovery]
+        ResetInterface[Reset Interface<br/>for Next Item]
+    end
+
+    subgraph "Error Scenarios"
+        ProcessingError[Processing Error<br/>Occurs]
+        ErrorNotification[Display Error<br/>Notification]
+        DiagnoseIssue[Diagnose Root<br/>Cause]
+        RecoveryOptions[Present Recovery<br/>Options]
+        RetryProcess[Retry Processing<br/>with Adjustments]
+        CancelProcess[Cancel Process<br/>and Log Issue]
+    end
+
+    subgraph "Batch Processing"
+        MultipleItems{Multiple Items<br/>Available?}
+        BatchProcess[Initiate Batch<br/>Processing]
+        SequentialProcess[Process Items<br/>Sequentially]
+        ParallelProcess[Process Items<br/>in Parallel]
+        MonitorBatch[Monitor Batch<br/>Progress]
+    end
+
+    AccessSystem --> NavigateRecovery
+    NavigateRecovery --> ViewDashboard
+    ViewDashboard --> ReviewQueue
+
+    ReviewQueue --> ExamineItem
+    ExamineItem --> CheckRecoverable
+    CheckRecoverable --> ViewStats
+    ViewStats --> IsRecoverable
+
+    IsRecoverable -->|Hazardous| HazardousWaste
+    IsRecoverable -->|Recoverable| ProceedRecovery
+    IsRecoverable -->|Non-recoverable| SafeDisposal
+
+    HazardousWaste --> SafeDisposal
+    SafeDisposal --> ProcessComplete
+
+    ProceedRecovery --> InitiateProcessing
+    InitiateProcessing --> MonitorProgress
+    MonitorProgress --> TrackEfficiency
+    TrackEfficiency --> QualityCheck
+
+    QualityCheck --> ExtractMaterials
+    ExtractMaterials --> UpdateInventory
+    UpdateInventory --> LogRecovery
+    LogRecovery --> UpdateStats
+    UpdateStats --> ProcessComplete
+
+    ProcessComplete --> GenerateReport
+    GenerateReport --> NotifySuccess
+    NotifySuccess --> ResetInterface
+
+    InitiateProcessing --> ProcessingError
+    MonitorProgress --> ProcessingError
+    QualityCheck --> ProcessingError
+
+    ProcessingError --> ErrorNotification
+    ErrorNotification --> DiagnoseIssue
+    DiagnoseIssue --> RecoveryOptions
+    RecoveryOptions --> RetryProcess
+    RecoveryOptions --> CancelProcess
+
+    RetryProcess --> InitiateProcessing
+    CancelProcess --> ResetInterface
+
+    ReviewQueue --> MultipleItems
+    MultipleItems -->|Yes| BatchProcess
+    MultipleItems -->|No| ExamineItem
+
+    BatchProcess --> SequentialProcess
+    BatchProcess --> ParallelProcess
+    SequentialProcess --> MonitorBatch
+    ParallelProcess --> MonitorBatch
+    MonitorBatch --> ProcessComplete
+
+    classDef access fill:#e3f2fd,stroke:#1976d2
+    classDef assessment fill:#f3e5f5,stroke:#7b1fa2
+    classDef decision fill:#e8f5e8,stroke:#388e3c
+    classDef process fill:#fff3e0,stroke:#f57c00
+    classDef integration fill:#fce4ec,stroke:#c2185b
+    classDef completion fill:#e1f5fe,stroke:#0277bd
+    classDef error fill:#ffebee,stroke:#c62828
+    classDef batch fill:#f1f8e9,stroke:#689f38
+
+    class AccessSystem,NavigateRecovery,ViewDashboard access
+    class ReviewQueue,ExamineItem,CheckRecoverable,ViewStats assessment
+    class IsRecoverable,HazardousWaste,SafeDisposal,ProceedRecovery decision
+    class InitiateProcessing,MonitorProgress,TrackEfficiency,QualityCheck process
+    class ExtractMaterials,UpdateInventory,LogRecovery,UpdateStats integration
+    class ProcessComplete,GenerateReport,NotifySuccess,ResetInterface completion
+    class ProcessingError,ErrorNotification,DiagnoseIssue,RecoveryOptions,RetryProcess,CancelProcess error
+    class MultipleItems,BatchProcess,SequentialProcess,ParallelProcess,MonitorBatch batch

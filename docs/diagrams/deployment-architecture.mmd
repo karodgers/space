@@ -1,0 +1,98 @@
+graph TD
+    subgraph "Development Environment"
+        DevMachine[Developer Machine<br/>Local Development]
+        Git[Git Repository<br/>Version Control]
+        Vite[Vite Dev Server<br/>Hot Reload]
+        Browser[Web Browser<br/>Testing Interface]
+    end
+
+    subgraph "Build Process"
+        SourceCode[Source Code<br/>TypeScript + React]
+        Dependencies[Dependencies<br/>npm packages]
+        ViteBuild[Vite Build<br/>Optimization]
+        Bundle[Optimized Bundle<br/>Static Assets]
+    end
+
+    subgraph "Staging Environment"
+        StagingServer[Staging Server<br/>Pre-production Testing]
+        StaticHosting[Static File Hosting<br/>CDN Ready]
+        DomainStaging[staging.domain.com<br/>Test Deployment]
+    end
+
+    subgraph "Production Environment"
+        ProdServer[Production Server<br/>Live Environment]
+        CDN[Content Delivery Network<br/>Global Distribution]
+        DomainProd[app.domain.com<br/>Production Domain]
+        SSL[SSL Certificate<br/>HTTPS Security]
+    end
+
+    subgraph "Hosting Platforms"
+        Netlify[Netlify<br/>Static Site Hosting]
+        Vercel[Vercel<br/>Serverless Platform]
+        GitHubPages[GitHub Pages<br/>Free Static Hosting]
+        AWS[AWS S3 + CloudFront<br/>Enterprise Hosting]
+        Manual[Manual Server<br/>Custom Deployment]
+    end
+
+    subgraph "Monitoring & Analytics"
+        ErrorTracking[Error Tracking<br/>Runtime Monitoring]
+        Performance[Performance Monitoring<br/>Load Times]
+        Analytics[User Analytics<br/>Usage Metrics]
+        Uptime[Uptime Monitoring<br/>Availability]
+    end
+
+    subgraph "Backup & Recovery"
+        GitBackup[Git Repository<br/>Code Backup]
+        AssetBackup[Asset Backup<br/>Static Files]
+        ConfigBackup[Configuration Backup<br/>Environment Settings]
+        Rollback[Rollback Procedures<br/>Version Recovery]
+    end
+
+    DevMachine --> Git
+    Git --> Vite
+    Vite --> Browser
+
+    SourceCode --> ViteBuild
+    Dependencies --> ViteBuild
+    ViteBuild --> Bundle
+
+    Bundle --> StagingServer
+    StagingServer --> StaticHosting
+    StaticHosting --> DomainStaging
+
+    Bundle --> ProdServer
+    ProdServer --> CDN
+    CDN --> DomainProd
+    DomainProd --> SSL
+
+    ProdServer --> Netlify
+    ProdServer --> Vercel
+    ProdServer --> GitHubPages
+    ProdServer --> AWS
+    ProdServer --> Manual
+
+    ProdServer --> ErrorTracking
+    ProdServer --> Performance
+    ProdServer --> Analytics
+    ProdServer --> Uptime
+
+    Git --> GitBackup
+    Bundle --> AssetBackup
+    ProdServer --> ConfigBackup
+    GitBackup --> Rollback
+
+    classDef dev fill:#e3f2fd,stroke:#1976d2
+    classDef build fill:#f3e5f5,stroke:#7b1fa2
+    classDef staging fill:#e8f5e8,stroke:#388e3c
+    classDef prod fill:#fff3e0,stroke:#f57c00
+    classDef hosting fill:#fce4ec,stroke:#c2185b
+    classDef monitoring fill:#e1f5fe,stroke:#0277bd
+    classDef backup fill:#f1f8e9,stroke:#689f38
+
+    class DevMachine,Git,Vite,Browser dev
+    class SourceCode,Dependencies,ViteBuild,Bundle build
+    class StagingServer,StaticHosting,DomainStaging staging
+    class ProdServer,CDN,DomainProd,SSL prod
+    class Netlify,Vercel,GitHubPages,AWS,Manual hosting
+    class ErrorTracking,Performance,Analytics,Uptime monitoring
+    class GitBackup,AssetBackup,ConfigBackup,Rollback backup

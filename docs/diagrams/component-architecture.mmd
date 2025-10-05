@@ -1,0 +1,79 @@
+graph TD
+    subgraph "Main Application"
+        App[App.tsx<br/>Main Container]
+        Tabs[Tabs Component<br/>Navigation]
+        Header[Header Component<br/>Status & Metrics]
+        Footer[Footer Component<br/>System Info]
+    end
+
+    subgraph "Feature Components"
+        Fabricator[SpaceFabricator.tsx<br/>Manufacturing Control]
+        Recovery[WasteRecoverySystem.tsx<br/>Waste Processing]
+        Inventory[InventorySystem.tsx<br/>Resource Management]
+        Systems[IntegratedSystems.tsx<br/>System Monitoring]
+        IoT[IoTSystemPanel.tsx<br/>Device Management]
+    end
+
+    subgraph "UI Component Library"
+        Card[Card Components<br/>Containers]
+        Button[Button Components<br/>Actions]
+        Progress[Progress Components<br/>Status Indicators]
+        Badge[Badge Components<br/>Labels]
+        Table[Table Components<br/>Data Display]
+        Chart[Chart Components<br/>Visualizations]
+    end
+
+    subgraph "Utility Components"
+        ImageWithFallback[ImageWithFallback.tsx<br/>Asset Loading]
+        ScrollArea[ScrollArea Components<br/>Scrollable Content]
+        Dialog[Dialog Components<br/>Modals]
+        Form[Form Components<br/>Data Input]
+    end
+
+    subgraph "Shared Utilities"
+        Utils[Utility Functions<br/>Helpers]
+        Types[TypeScript Types<br/>Type Definitions]
+        Hooks[Custom Hooks<br/>State Logic]
+        Constants[Constants<br/>Configuration]
+    end
+
+    App --> Tabs
+    App --> Header
+    App --> Footer
+
+    Tabs --> Fabricator
+    Tabs --> Recovery
+    Tabs --> Inventory
+    Tabs --> Systems
+    Tabs --> IoT
+
+    Fabricator --> Card
+    Fabricator --> Button
+    Fabricator --> Progress
+    Recovery --> Badge
+    Recovery --> Table
+    Inventory --> Chart
+    Systems --> ScrollArea
+    IoT --> Dialog
+
+    Card --> Utils
+    Button --> Types
+    Progress --> Hooks
+    Badge --> Constants
+
+    ImageWithFallback --> Utils
+    ScrollArea --> Types
+    Dialog --> Hooks
+    Form --> Constants
+
+    classDef main fill:#e3f2fd,stroke:#1976d2
+    classDef feature fill:#f3e5f5,stroke:#7b1fa2
+    classDef ui fill:#e8f5e8,stroke:#388e3c
+    classDef utility fill:#fff3e0,stroke:#f57c00
+    classDef shared fill:#fce4ec,stroke:#c2185b
+
+    class App,Tabs,Header,Footer main
+    class Fabricator,Recovery,Inventory,Systems,IoT feature
+    class Card,Button,Progress,Badge,Table,Chart ui
+    class ImageWithFallback,ScrollArea,Dialog,Form utility
+    class Utils,Types,Hooks,Constants shared

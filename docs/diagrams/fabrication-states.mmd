@@ -1,0 +1,24 @@
+stateDiagram-v2
+    [*] --> Idle: Application loads
+
+    Idle --> Idle: No item selected
+    Idle --> ItemSelected: User selects item
+    ItemSelected --> Idle: User deselects item
+
+    ItemSelected --> MaterialsCheck: User clicks "Create Item"
+    MaterialsCheck --> ItemSelected: Insufficient materials
+    MaterialsCheck --> Crafting: Materials available
+
+    Crafting --> Crafting: Progress < 100%
+    Crafting --> Done: Progress = 100%
+
+    Done --> Collected: User clicks "Collect Item"
+    Collected --> Idle: Reset after 1 second
+
+    Done --> Done: Waiting for collection
+    Collected --> [*]: Process complete
+
+    note right of MaterialsCheck : Validation Logic
+    note right of Crafting : Progress Timer
+    note right of Done : Completion Message
+    note right of Collected : Item Added to Inventory
