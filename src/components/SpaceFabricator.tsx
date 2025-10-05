@@ -125,8 +125,8 @@ const SpaceFabricator = () => {
       ]
     },
     {
-      id: 'air-scrubber',
-      name: 'Air Scrubber',
+      id: '3D Printable Life Support item',
+      name: '3D Printable Life Support item',
       category: 'Life Support',
       icon: <Heart className="w-5 h-5 text-blue-400" />,
       description: 'Atmospheric purification and recycling unit',
