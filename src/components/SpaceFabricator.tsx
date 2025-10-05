@@ -125,11 +125,11 @@ const SpaceFabricator = () => {
       ]
     },
     {
-      id: 'air-scrubber',
-      name: 'Air Scrubber',
+      id: 'forceps and scalpel',
+      name: 'Forceps and Scalpel',
       category: 'Life Support',
       icon: <Heart className="w-5 h-5 text-blue-400" />,
-      description: 'Atmospheric purification and recycling unit',
+      description: 'Basic surgical tools for medical procedures',
       fabricationTime: 18,
       materials: [
         { id: 'metal-scraps', quantity: 12 },
